@@ -102,7 +102,7 @@ namespace DeutscheVerbenSpiel
 
         private void StartTimer()
         {
-            timerSeconds = 5;
+            timerSeconds = 10;
             TimerLabel.Text = timerSeconds + "s";
             questionTimer.Start();
         }

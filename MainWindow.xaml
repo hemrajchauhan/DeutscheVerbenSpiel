@@ -106,19 +106,19 @@
         <!-- BOTTOM BUTTONS -->
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,6,0,8">
             <Button x:Name="HinweisButton" Content="Hinweis anzeigen"
-                    FontSize="15" Width="130" Height="38"
+                    FontSize="15" Width="120" Height="38"
                     Margin="8,0,8,0"
                     Click="HinweisButton_Click" Background="#FFF5C7" BorderBrush="#E6D36D" />
             <TextBlock x:Name="TimerLabel"
-                       Width="20" FontSize="19" FontWeight="Bold"
+                       Width="30" FontSize="19" FontWeight="Bold"
                        TextAlignment="Center" VerticalAlignment="Center"
                        Foreground="#D7263D" Margin="0,0,0,0"/>
             <Button x:Name="NaechsteButton" Content="Nächste"
-                    FontSize="15" Width="80" Height="38"
+                    FontSize="15" Width="60" Height="38"
                     Margin="8,0,8,0"
                     Click="NaechsteButton_Click" Background="#A7D2F5" BorderBrush="#5BA0D4" />
             <Button x:Name="StoppButton" Content="Spiel beenden"
-                    FontSize="15" Width="110" Height="38"
+                    FontSize="15" Width="100" Height="38"
                     Margin="8,0,8,0"
                     Click="StoppButton_Click" Background="#F5A7A7" BorderBrush="#D77C7C"/>
         </StackPanel>
