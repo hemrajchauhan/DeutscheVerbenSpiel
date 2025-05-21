@@ -1,0 +1,68 @@
+﻿<Window x:Class="DeutscheVerbenSpiel.ReviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DeutscheVerbenSpiel"
+        Title="Überprüfung" Height="520" Width="400"
+        Background="#FAFAFA"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Window.Resources>
+        <local:NullOrEmptyToVisibilityConverter x:Key="NullOrEmptyToVisibilityConverter"/>
+    </Window.Resources>
+    <Grid Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="54"/>
+        </Grid.RowDefinitions>
+        <!-- ... (the rest as you posted, unchanged) ... -->
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#D6EFFF" Padding="0,0,0,0" Margin="0,0,0,0">
+            <TextBlock Text="Fehler Überprüfung"
+                       FontSize="21" FontWeight="Bold" Foreground="#22577A"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <!-- Mistake List -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="6,8,6,6">
+            <ItemsControl x:Name="ReviewListPanel">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="0,0,0,14" Padding="10" CornerRadius="10" Background="#F7F8FB" BorderBrush="#E0E5ED" BorderThickness="1">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding German}" FontSize="19" FontWeight="Bold" Foreground="#15644B"/>
+                                    <Button Content="🔊" Width="32" Height="32" FontSize="17"
+                                            Margin="8,0,0,0"
+                                            Padding="0"
+                                            Background="#E9F6EF" BorderBrush="#B2D7C4"
+                                            Tag="{Binding German}"
+                                            Click="PlayAudio_Click"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                    <TextBlock Text="Richtig: " FontWeight="SemiBold" Foreground="#888" Margin="0,0,2,0"/>
+                                    <TextBlock Text="{Binding CorrectEnglish}" Foreground="#168AAD"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                    <TextBlock Text="Deine Antwort: " FontWeight="SemiBold" Foreground="#888" Margin="0,0,2,0"/>
+                                    <TextBlock Text="{Binding YourAnswer, TargetNullValue='(keine Antwort)'}" Foreground="#D7263D"/>
+                                </StackPanel>
+                                <TextBlock Text="{Binding Hint, StringFormat=Hinweis\: {0}}" Foreground="#21405A" FontSize="13" Margin="0,2,0,0"
+                                           TextWrapping="Wrap" Visibility="{Binding Hint, Converter={StaticResource NullOrEmptyToVisibilityConverter}}"/>
+                                <TextBlock Text="{Binding Beispiel, StringFormat=Beispiel\: {0}}" Foreground="#B95F2C" FontSize="13" Margin="0,2,0,0"
+                                           TextWrapping="Wrap" Visibility="{Binding Beispiel, Converter={StaticResource NullOrEmptyToVisibilityConverter}}"/>
+                                <TextBlock Text="{Binding Beispiel_EN, StringFormat=Beispiel_EN\: {0}}" Foreground="#4682B4" FontSize="13" Margin="0,2,0,0"
+                                           TextWrapping="Wrap" Visibility="{Binding Beispiel_EN, Converter={StaticResource NullOrEmptyToVisibilityConverter}}"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <!-- Bottom Close Button -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Schließen" Width="110" Height="38" FontSize="15"
+                    Margin="0,0,0,0" Padding="4,1"
+                    Click="CloseButton_Click" Background="#C5EDC4" BorderBrush="#97D193"/>
+        </StackPanel>
+    </Grid>
+</Window>
