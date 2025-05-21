@@ -55,7 +55,7 @@ Quiz yourself with randomized questions, listen to pronunciations, get hints and
 ## 📖 License
 
 **AGPL-3.0 License**  
-See [LICENSE](LICENSE) for full details.
+See [LICENSE](https://github.com/hemrajchauhan/DeutscheVerbenSpiel/tree/master?tab=AGPL-3.0-1-ov-file) for full details.
 
 - You may use, modify, and redistribute the software under the terms of the GNU Affero General Public License v3.0.
 - If you run a modified version of this software over a network, you must make the source code available.
