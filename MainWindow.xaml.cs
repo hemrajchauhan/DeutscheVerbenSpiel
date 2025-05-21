@@ -225,10 +225,34 @@ namespace DeutscheVerbenSpiel
         private void HinweisButton_Click(object sender, RoutedEventArgs e)
         {
             int thisIndex = order[currentWord];
-            HintLabel.Text = !string.IsNullOrWhiteSpace(verbs[thisIndex].Hint) ? "Hinweis: " + verbs[thisIndex].Hint : "";
-            BeispielLabel.Text = !string.IsNullOrWhiteSpace(verbs[thisIndex].Beispiel) ? "Beispiel: " + verbs[thisIndex].Beispiel : "";
-            ExampleLabel.Text = !string.IsNullOrWhiteSpace(verbs[thisIndex].Example) ? "Englisch: " + verbs[thisIndex].Example : "";
-            SpeakGerman(verbs[thisIndex].Beispiel);
+            if (!isAnswered)
+            {
+                // Before answer: only show the Beispiel (German)
+                HintLabel.Text = "";
+                BeispielLabel.Text = !string.IsNullOrWhiteSpace(verbs[thisIndex].Beispiel)
+                    ? "Beispiel: " + verbs[thisIndex].Beispiel
+                    : "";
+                ExampleLabel.Text = "";
+
+                // Speak the Beispiel (German sentence)
+                SpeakGerman(verbs[thisIndex].Beispiel);
+            }
+            else
+            {
+                // After answer: show Hint, Beispiel (German), Example (English)
+                HintLabel.Text = !string.IsNullOrWhiteSpace(verbs[thisIndex].Hint)
+                    ? "Hinweis: " + verbs[thisIndex].Hint
+                    : "";
+                BeispielLabel.Text = !string.IsNullOrWhiteSpace(verbs[thisIndex].Beispiel)
+                    ? "Beispiel: " + verbs[thisIndex].Beispiel
+                    : "";
+                ExampleLabel.Text = !string.IsNullOrWhiteSpace(verbs[thisIndex].Example)
+                    ? "Englisch: " + verbs[thisIndex].Example
+                    : "";
+
+                // Speak the Beispiel (German sentence)
+                SpeakGerman(verbs[thisIndex].Beispiel);
+            }
         }
 
         private void NaechsteButton_Click(object sender, RoutedEventArgs e)
