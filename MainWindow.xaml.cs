@@ -33,7 +33,7 @@ namespace DeutscheVerbenSpiel
             InitializeComponent();
             btns = new[] { Option1, Option2, Option3, Option4 };
             speechSynth = new SpeechSynthesizer();
-            LoadAllVerbs();
+            LoadAllVerbs("Verben_Most_Used");
             if (verbs.Count == 0)
             {
                 MessageBox.Show("Keine Verben gefunden!");
@@ -47,7 +47,7 @@ namespace DeutscheVerbenSpiel
             UpdateScoreLabel();
         }
 
-        private void LoadAllVerbs()
+        private void LoadAllVerbs(string tableName)
         {
             verbs.Clear();
             string dbPath = "Database\\verben.db";
@@ -60,7 +60,7 @@ namespace DeutscheVerbenSpiel
             using (var conn = new SQLiteConnection("Data Source=" + dbPath))
             {
                 conn.Open();
-                string sql = "SELECT id, german, english, beispiel, example, hint FROM Verben";
+                string sql = $"SELECT id, german, english, beispiel, example, hint FROM {tableName}";
                 using (var cmd = new SQLiteCommand(sql, conn))
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -102,7 +102,7 @@ namespace DeutscheVerbenSpiel
 
         private void StartTimer()
         {
-            timerSeconds = 10;
+            timerSeconds = 15;
             TimerLabel.Text = timerSeconds + "s";
             questionTimer.Start();
         }
