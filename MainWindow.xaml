@@ -81,7 +81,7 @@
         </StackPanel>
 
         <!-- OPTIONS -->
-        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300">
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="370">
             <Button x:Name="Option1" Style="{StaticResource QuizOptionButton}" Click="Option_Click"/>
             <Button x:Name="Option2" Style="{StaticResource QuizOptionButton}" Click="Option_Click"/>
             <Button x:Name="Option3" Style="{StaticResource QuizOptionButton}" Click="Option_Click"/>

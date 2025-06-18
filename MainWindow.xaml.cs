@@ -228,14 +228,14 @@ namespace DeutscheVerbenSpiel
             if (!isAnswered)
             {
                 // Before answer: only show the Beispiel (German)
-                HintLabel.Text = "";
-                BeispielLabel.Text = !string.IsNullOrWhiteSpace(verbs[thisIndex].Beispiel)
-                    ? "Beispiel: " + verbs[thisIndex].Beispiel
+                HintLabel.Text = !string.IsNullOrWhiteSpace(verbs[thisIndex].Hint)
+                    ? "Hinweis: " + verbs[thisIndex].Hint
                     : "";
+                BeispielLabel.Text = "";
                 ExampleLabel.Text = "";
 
                 // Speak the Beispiel (German sentence)
-                SpeakGerman(verbs[thisIndex].Beispiel);
+                SpeakGerman(verbs[thisIndex].Hint);
             }
             else
             {
